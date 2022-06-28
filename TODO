@@ -1,12 +1,11 @@
 
 - TODO:
-  - make notification history
   - light blue outline (only) on focussed window
   - make client open in the tag it was called from
   - set screen timeout
   - set rules to override screen timeout, such as
    - while a video is playing
-  - set theme and wallpaper
+  - manage keybinds
   - use modkey + <num> to switch tags by index
   - use modkey + shift + <num> to switch windows in current tag by index
   - use modkey + <numkey> to change layout
@@ -14,9 +13,14 @@
    - moving between tags|windows
    - resizing|moving windows
    - changing layout
-  - add a lockscreen
-  - add (toggleable) separator between wibox widgets
   - disable mouse scrolling between windows|tags
-  - create a session manager
-  - create prompts so I don't have to rely on rofi
+  - create menu for mouse which lets me access anything my keyboard can
+  - set theme and wallpaper
+  - add logging for
+   - notifications
+   - errors
+  - add (toggleable) separator between wibox widgets
+  - create builtin prompts so I don't have to rely on rofi
   - prompt to choose window layout
+  - add a lockscreen
+  - create a session manager

@@ -5,35 +5,38 @@ awesome, client, mouse, screen, tag, root = awesome, client, mouse, screen, tag,
 ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
 
 -- Standard awesome libraries
-gears = require("gears")
-awful = require("awful")
+gears = require('gears')
+awful = require('awful')
 
 -- Widget and layout library
-wibox = require("wibox")
+wibox = require('wibox')
 
 -- Theme handling library
-beautiful = require("beautiful")
+beautiful = require('beautiful')
 
 -- Notification library
-naughty = require("naughty")
-menubar = require("menubar")
-hotkeys_popup = require("awful.hotkeys_popup")
+naughty = require('naughty')
+menubar = require('menubar')
+hotkeys_popup = require('awful.hotkeys_popup')
 
 -- External Modules
-lain = require("lain")
+lain = require('lain')
+
+-- Default Dirs
+HOME_DIR=os.getenv('HOME')
 
 -- Default Programs
 --- this is the fallback if mime type doesn't work
 apps = {
-  terminal = "kitty",
-  editor = os.getenv("EDITOR") or "nvim",
-  geditor = "emacs", -- gui text editor
-  browser = "qutebrowser",
+  terminal = 'kitty',
+  editor = os.getenv('EDITOR') or 'nvim',
+  geditor = 'emacs', -- gui text editor
+  browser = 'qutebrowser',
   viewer = {
-    image = "sxiv",
-    video = "mpv",
-    audio = "mpv",
-    pdf = "zathura",
+    image = 'sxiv',
+    video = 'mpv',
+    audio = 'mpv',
+    pdf = 'zathura',
   }
 }
 
