@@ -68,6 +68,7 @@ M.myrules = {--"https://awesomewm.org/doc/api/libraries/awful.M.html"
     },
 
     -- Remove titlebars from certain apps
+    -- set titlebars on floating windows
     {
       rule_any = {
         name = { "kitty", "qutebrowser", "brave", "steam" },

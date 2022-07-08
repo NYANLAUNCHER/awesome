@@ -3,6 +3,18 @@ require('defs')
 require('awful.hotkeys_popup.keys')
 require('awful.autofocus')
 
+-- set the screen timeout in seconds
+local screen_timeout = 60*60
+
+-- Startup Apps
+local run_on_startup = {
+  'sxhkd &',
+  'xmodmap ~/.config/X11/xmodmap &',
+  'polychromatic-tray-applet',
+  'picom',
+  apps.terminal,
+  'qutebrowser'
+}
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -275,18 +287,12 @@ beautiful.useless_gap = 3
 --  c.border_color = '#0000AA'--= blue
 --end)
 
--- Startup Apps
-local run_on_startup = {
-  'sxhkd &',
-  'xmodmap ~/.config/X11/xmodmap &',
-  'polychromatic-tray-applet',
-  'picom',
-  apps.terminal
-}
+-- run startup apps
 -- sources = 'https://awesomewm.org/doc/api/libraries/awful.spawn.html#once',
 --  'https://awesomewm.org/doc/api/libraries/awful.spawn.html#single_instance'
 for _, app in pairs(run_on_startup) do
   --awful.spawn.single_instance(app, awful.rules.rules)
-  awful.spawn.once(app, awful.rules.rules)
+  --awful.spawn.once(app, awful.rules.rules)
+  awful.spawn.with_shell(app)
 end
 

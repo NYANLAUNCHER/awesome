@@ -12,28 +12,28 @@ M.buttons = gears.table.join(
 
 -- Key bindings
 M.globalkeys = gears.table.join(
-    awful.key({ M.modkey,           }, 's',      hotkeys_popup.show_help,
+    awful.key({ M.modkey }, 's', hotkeys_popup.show_help,
               {description='show help', group='awesome'}),
-    awful.key({ M.modkey,           }, 'h',   awful.tag.viewprev,
+    awful.key({ M.modkey }, 'h', awful.tag.viewprev,
               {description = 'view previous', group = 'tag'}),
-    awful.key({ M.modkey,           }, 'l',  awful.tag.viewnext,
+    awful.key({ M.modkey }, 'l', awful.tag.viewnext,
               {description = 'view next', group = 'tag'}),
-    awful.key({ M.modkey,           }, 'Escape', awful.tag.history.restore,
+    awful.key({ M.modkey }, 'Escape', awful.tag.history.restore,
               {description = 'go back', group = 'tag'}),
 
-    awful.key({ M.modkey,           }, 'j',
+    awful.key({ M.modkey }, 'j',
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = 'focus next by index', group = 'client'}
     ),
-    awful.key({ M.modkey,           }, 'k',
+    awful.key({ M.modkey }, 'k',
         function ()
             awful.client.focus.byidx(-1)
         end,
         {description = 'focus previous by index', group = 'client'}
     ),
-    --awful.key({ M.modkey,           }, 'w', function () mymainmenu:show() end,
+    --awful.key({ M.modkey }, 'w', function () mymainmenu:show() end,
     --          {description = 'show main menu', group = 'awesome'}),
 
     -- Layout manipulation
@@ -45,7 +45,7 @@ M.globalkeys = gears.table.join(
               {description = 'focus the next screen', group = 'screen'}),
     awful.key({ M.modkey, 'Control' }, 'k', function () awful.screen.focus_relative(-1) end,
               {description = 'focus the previous screen', group = 'screen'}),
-    awful.key({ M.modkey,           }, 'u', awful.client.urgent.jumpto,
+    awful.key({ M.modkey }, 'u', awful.client.urgent.jumpto,
               {description = 'jump to urgent client', group = 'client'}),
     awful.key({ M.altkey,           }, 'Tab',
         function ()
@@ -55,7 +55,7 @@ M.globalkeys = gears.table.join(
             end
         end,
         {description = 'swap between 2 clients', group = 'client'}),
-    awful.key({ M.modkey,           }, 'Tab',
+    awful.key({ M.modkey }, 'Tab',
         function ()
           awful.tag.history.restore(s, 1)
         end,
@@ -71,9 +71,9 @@ M.globalkeys = gears.table.join(
     awful.key({ M.modkey, 'Control' }, 'q', awesome.quit,
               {description = 'quit awesome', group = 'awesome'}),
 
-    awful.key({ M.modkey,           }, 'Right',     function () awful.tag.incmwfact( 0.025)     end,
+    awful.key({ M.modkey }, 'Right',     function () awful.tag.incmwfact( 0.025)     end,
               {description = 'increase master width factor', group = 'layout'}),
-    awful.key({ M.modkey,           }, 'Left',     function () awful.tag.incmwfact(-0.025)      end,
+    awful.key({ M.modkey }, 'Left',     function () awful.tag.incmwfact(-0.025)      end,
               {description = 'decrease master width factor', group = 'layout'}),
     awful.key({ M.modkey, 'Shift'   }, 'h',     function () awful.tag.incnmaster( 1, nil, true) end,
               --{description = 'cycle previous tag', group = 'layout'}),
@@ -85,7 +85,7 @@ M.globalkeys = gears.table.join(
               {description = 'increase the number of columns', group = 'layout'}),
     awful.key({ M.modkey, 'Control' }, 'l',     function () awful.tag.incncol(-1, nil, true)    end,
               {description = 'decrease the number of columns', group = 'layout'}),
-    awful.key({ M.modkey,           }, 'space', function () awful.layout.inc( 1)                end,
+    awful.key({ M.modkey }, 'space', function () awful.layout.inc( 1)                end,
               {description = 'select next layout', group = 'layout'}),
     awful.key({ M.modkey, 'Shift'   }, 'space', function () awful.layout.inc(-1)                end,
               {description = 'select previous layout', group = 'layout'}),
@@ -121,7 +121,7 @@ M.globalkeys = gears.table.join(
 )
 
 M.clientkeys = gears.table.join(
-    awful.key({ M.modkey,           }, 'f',
+    awful.key({ M.modkey }, 'f',
       function (c)
         c.fullscreen = not c.fullscreen
         c:raise()
@@ -133,18 +133,18 @@ M.clientkeys = gears.table.join(
     --          {description = 'toggle floating', group = 'client'}),
     awful.key({ M.modkey, 'Control' }, 'Return', function (c) c:swap(awful.client.getmaster()) end,
               {description = 'move to master', group = 'client'}),
-    awful.key({ M.modkey,           }, 'o',      function (c) c:move_to_screen()               end,
+    awful.key({ M.modkey }, 'o',      function (c) c:move_to_screen()               end,
               {description = 'move to screen', group = 'client'}),
-    awful.key({ M.modkey,           }, 't',      function (c) c.ontop = not c.ontop            end,
+    awful.key({ M.modkey }, 't',      function (c) c.ontop = not c.ontop            end,
               {description = 'toggle keep on top', group = 'client'}),
-    awful.key({ M.modkey,           }, 'n',
+    awful.key({ M.modkey }, 'n',
       function (c)
         -- The client currently has the input focus, so it cannot be
         -- minimized, since minimized clients can't have the focus.
         c.minimized = true
       end ,
       {description = 'minimize', group = 'client'}),
-    awful.key({ M.modkey,           }, 'm',
+    awful.key({ M.modkey }, 'm',
       function (c)
         c.maximized = not c.maximized
         c:raise()
