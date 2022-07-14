@@ -3,6 +3,20 @@ local M={}
 M.modkey = 'Mod4'
 M.altkey = 'Mod1'
 
+local myawesomemenu = {
+   { 'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+   { 'manual', apps.terminal .. ' -e man awesome' },
+   { 'edit config', apps.editor .. ' ' .. awesome.conffile },
+   { 'restart', awesome.restart },
+   { 'quit', function() awesome.quit() end },
+}
+
+local mymainmenu = awful.menu({ items = {
+    { 'awesome', myawesomemenu, beautiful.awesome_icon },
+    { 'open terminal', apps.terminal }
+  }
+})
+
 -- Desktop Buttons
 M.buttons = gears.table.join(
   awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -62,9 +76,8 @@ M.globalkeys = gears.table.join(
         {description = 'swap between 2 tags', group = 'client'}),
 
     -- Standard program
-    --awful.key({ M.modkey, 'Shift'        }, 't', function () awful.spawn(apps.terminal) end,
-    --          {description = 'open a apps.terminal', group = 'launcher'}),
-    --TODO:
+    awful.key({ M.modkey }, 'Enter', function () awful.spawn(apps.terminal) end,
+              {description = 'open terminal', group = 'launcher'}),
     awful.key({ M.modkey, 'Control' }, 'r', awesome.restart,
               {description = 'reload awesome', group = 'awesome'}),
     --  prompt y/n before executing
