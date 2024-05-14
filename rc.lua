@@ -48,7 +48,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "kitty"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -61,8 +61,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -271,7 +271,13 @@ globalkeys = gears.table.join(
                 client.focus:raise()
             end
         end,
-        {description = "go back", group = "client"}),
+        {description = "goto previous client", group = "client"}),
+    awful.key({ modkey }, "Tab",
+        function ()
+            local screen = awful.screen.focused()
+            awful.tag.history.restore(screen)
+        end,
+        {description = "goto previous tag", group = "client"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -281,10 +287,20 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-              {description = "increase master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-              {description = "decrease master width factor", group = "layout"}),
+    awful.key({ modkey }, "l",
+      function ()
+        local screen = awful.screen.focused()
+        awful.tag.viewnext(screen)
+      end,
+      {description = "view next tag", group = "tag"}),
+
+    awful.key({ modkey }, "h",
+      function ()
+        local screen = awful.screen.focused()
+        awful.tag.viewprev(screen)
+      end,
+      {description = "view previous tag", group = "tag"}),
+
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,

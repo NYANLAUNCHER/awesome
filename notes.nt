@@ -1,5 +1,43 @@
 
 TODO:
-- runprompt like rofi
-- client finder menu like rofi
+- Keybinds:
+  - Super + (h,j,k,l) = navigate current layer in tag
+  - Super + {Shift + (j,k) || (u,d)} || (PgDn, PgUp) = navigate (up, down) layers in the current tag
+  - Super + Shift + (h,l) = navigate left & right through the tags
+  - Super + Shift + c = close client window
+  - Super + w = force wibar to top
+  - Super + Shift + f = toggle client floating (if (client == floating), then window titlebar = enabled)
+  - <> = show title bars
+- Wibar = <exit_fullscreen> | <mouse_menu> | <tags> | <current_layer>:<layers> | <clients> | <tray_icon> | <sysinfo> | <layout_menu> | <hide_clients>
+  - <exit_fullscreen> = invisible button overlayed on <mouse_menu>, only exists when client is in fullscreen
+  - <hide_clients> = like the "show desktop" button on windows
+  - <sysinfo> = { <network_status> | <kbdlayout> | <date> | <time> }
+    - <network_status> = dropdown to manage networking
+    - <kbdlayout> = dropdown to change keyboard layout
+  - <tray_icon> = dropdown menu that reveals list of background applications
+    - flameshot daemon for screenshots
+  - <mouse_menu> = provides access to the (builtin) virtual keyboard, prompts, & actions
+- Prompts:
+  - runprompt = execute shell commands + start desktop applications
+  - client finder = jump to client window, client indexing fmt = "{tag}:{layer}:{index}"
+  - layout picker = can apply to list of <tags> or to all tags with '*'
+  - workspace manager = save and load workspaces, similar to Zellij
+  - clipboard manager & dictionary/spellchecker
+  - Lua repl = nice repl for AwesomeWM's lua, and actions
+- Actions: (lua functions to perform actions on AwesomeWM)
+- UI:
+  - virutal keyboard = on-screen kbd for the mouse, accessed through <mouse_menu>
 
+```
+navigate layers, this is on left side of screen
+│
+│   
+├───┬──────────────┐
+│[3]│ 1: qutebrow… │
+├───┤ 2: kitty -e… │
+│ 2 │ 3: vieb      │       
+├───┼──────────────┘
+│ 1 │
+├───┘
+│
+```
